@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-Вертикаль | Подготовка к поступлению</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Боковая панель навигации -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <span>IT-Вертикаль</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="menu-item active" data-section="tasks">
+                <i class="fas fa-tasks"></i>
+                <span>Задачи</span>
+            </li>
+            <li class="menu-item" data-section="theory">
+                <i class="fas fa-book"></i>
+                <span>Теория</span>
+            </li>
+            <li class="menu-item" data-section="notes">
+                <i class="fas fa-sticky-note"></i>
+                <span>Заметки</span>
+            </li>
+            <li class="menu-item" data-section="progress">
+                <i class="fas fa-chart-line"></i>
+                <span>Прогресс</span>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <button class="sidebar-btn" id="aiSettingsBtn">
+                <i class="fas fa-robot"></i>
+                <span>AI Настройки</span>
+            </button>
+            <button class="sidebar-btn" id="settingsBtn">
+                <i class="fas fa-cog"></i>
+                <span>Настройки</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Заголовок и кнопки управления -->
+        <header class="content-header">
+            <div class="header-title">
+                <h1>Подготовка к поступлению в IT-класс</h1>
+                <p>Решайте задачи по математике и информатике для поступления в 7 профильный класс</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="generateTasksBtn">
+                    <i class="fas fa-sync-alt"></i>
+                    Сгенерировать все задачи
+                </button>
+                <button class="btn btn-secondary" id="checkAnswersBtn">
+                    <i class="fas fa-check-circle"></i>
+                    Проверить ответы
+                </button>
+            </div>
+        </header>
+
+        <!-- Секция задач -->
+        <section class="content-section active" id="tasksSection">
+            <div class="tasks-container">
+                <div class="tasks-header">
+                    <h2>Задания для подготовки</h2>
+                    <div class="tasks-controls">
+                        <div class="module-selector">
+                            <button class="module-btn active" data-module="math">Математика (1-5)</button>
+                            <button class="module-btn" data-module="it">Информатика (6-10)</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Нейросеть генерирует задания...</p>
+                </div>
+                
+                <div class="tasks-list active" id="mathTasksList">
+                    <!-- Математические задачи будут здесь -->
+                </div>
+                
+                <div class="tasks-list" id="itTasksList">
+                    <!-- Информатические задачи будут здесь -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция теории -->
+        <section class="content-section" id="theorySection">
+            <div class="theory-container">
+                <h2>Теоретические материалы</h2>
+                
+                <div class="theory-modules">
+                    <div class="theory-module">
+                        <h3><i class="fas fa-calculator"></i> Модуль 1 «Математика» (задания 1 – 5) — направлен на проверку вычислительных навыков, 
+умения решать уравнения, математические задачи, задания с параметром. </h3>
+                        <div class="theory-content">
+                            <div class="theory-item">
+                                <h4>Решение уравнений</h4>
+                                <p>Линейное уравнение вида: ax + b = 0</p>
+                                <p><strong>Решение:</strong> x = -b/a</p>
+                                <div class="theory-example">
+                                    <p><strong>Пример:</strong> 3x + 6 = 0 → x = -2</p>
+                                </div>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Проценты</h4>
+                                <p>1% = 1/100 = 0.01</p>
+                                <p><strong>Найти a% от числа b:</strong> b × (a/100)</p>
+                                <p><strong>Найти, сколько % составляет a от b:</strong> (a/b) × 100%</p>
+                                <div class="theory-example">
+                                    <p><strong>Пример:</strong> Найти 15% от 200: 200 × 0.15 = 30</p>
+                                </div>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Геометрические фигуры</h4>
+                                <p><strong>Площадь прямоугольника:</strong> S = a × b</p>
+                                <p><strong>Площадь квадрата:</strong> S = a²</p>
+                                <p><strong>Периметр прямоугольника:</strong> P = 2(a + b)</p>
+                                <p><strong>Периметр квадрата:</strong> P = 4a</p>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Задачи с параметром</h4>
+                                <p>Уравнение с параметром имеет вид: ax = b</p>
+                                <p>При a ≠ 0 уравнение имеет единственное решение: x = b/a</p>
+                                <p>При a = 0 и b = 0 - бесконечно много решений</p>
+                                <p>При a = 0 и b ≠ 0 - нет решений</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="theory-module">
+                        <h3><i class="fas fa-laptop-code"></i> Модуль 2 «Информатика» (задачи 6 – 10) — направлен на проверку умения формализации и 
+структурирования информации в соответствии с поставленной задачей, проявление логического 
+и алгоритмического мышления. Представлены задачи по информатике из разделов «Цифровая 
+грамотность», «Теоретические основы информатики» и «Алгоритмизация и основы 
+программирования». </h3>
+                        <div class="theory-content">
+                            <div class="theory-item">
+                                <h4>Круги Эйлера-Венна</h4>
+                                <p>Графическое представление отношений между множествами</p>
+                                <p><strong>Пример:</strong> A = города, B = Ярославль, C = Санкт-Петербург</p>
+                                <p>Ярославль и Санкт-Петербург являются городами, поэтому B ⊂ A и C ⊂ A</p>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Единицы измерения информации</h4>
+                                <p>1 байт = 8 бит</p>
+                                <p>1 Кбайт = 1024 байт</p>
+                                <p>1 Мбайт = 1024 Кбайт</p>
+                                <p><strong>Информационный объем текста:</strong> количество символов × вес одного символа</p>
+                                <div class="theory-example">
+                                    <p><strong>Пример:</strong> "МАМА МЫЛА РАМУ" (12 символов) при весе символа 8 бит:</p>
+                                    <p>12 × 8 = 96 бит = 12 байт</p>
+                                </div>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Блок-схемы алгоритмов</h4>
+                                <p>Графическое представление алгоритма с использованием стандартных блоков:</p>
+                                <ul>
+                                    <li>Начало/конец - овал</li>
+                                    <li>Действие - прямоугольник</li>
+                                    <li>Решение - ромб</li>
+                                    <li>Ввод/вывод - параллелограмм</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="theory-item">
+                                <h4>Исполнитель Чертежник</h4>
+                                <p>Исполнитель для построения рисунков на координатной плоскости</p>
+                                <p><strong>Основные команды:</strong></p>
+                                <ul>
+                                    <li>сместиться в точку (x, y)</li>
+                                    <li>опустить перо</li>
+                                    <li>поднять перо</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция заметок -->
+        <section class="content-section" id="notesSection">
+            <div class="notes-container">
+                <div class="notes-header">
+                    <h2>Мои заметки</h2>
+                    <button class="btn btn-primary" id="addNoteBtn">
+                        <i class="fas fa-plus"></i>
+                        Новая заметка
+                    </button>
+                </div>
+                <div class="notes-grid" id="notesGrid">
+                    <!-- Заметки будут добавляться здесь -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция прогресса -->
+        <section class="content-section" id="progressSection">
+            <div class="progress-container">
+                <h2>Мой прогресс</h2>
+                
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Решено задач</h3>
+                            <p class="stat-value" id="solvedTasks">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Точность решений</h3>
+                            <p class="stat-value" id="accuracyRate">0%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Лучшая серия</h3>
+                            <p class="stat-value" id="bestStreak">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-chart">
+                    <h3>Прогресс по темам</h3>
+                    <div class="chart-container">
+                        <div class="chart-bar">
+                            <div class="chart-label">Математика</div>
+                            <div class="chart-progress">
+                                <div class="chart-fill" id="mathProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="chart-value">0%</div>
+                        </div>
+                        
+                        <div class="chart-bar">
+                            <div class="chart-label">Информатика</div>
+                            <div class="chart-progress">
+                                <div class="chart-fill" id="itProgress" style="width: 0%"></div>
+                            </div>
+                            <div class="chart-value">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальные окна -->
+    
+    <!-- Модальное окно результатов -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Результаты проверки</h2>
+                <button class="close-btn" id="closeResultModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="result-text" id="resultText"></div>
+                <div class="math-fact" id="mathFact" style="display: none;">
+                    <div class="fact-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Интересный факт:
+                    </div>
+                    <div class="fact-content" id="factContent"></div>
+                </div>
+                <div class="incorrect-answers" id="incorrectAnswers" style="display: none;">
+                    <div class="incorrect-title">Неправильно решённые задачи:</div>
+                    <ul class="incorrect-list" id="incorrectList"></ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="newTasksBtn">Новые задачи</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно настроек AI -->
+    <div class="modal" id="aiSettingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Настройки нейросети</h2>
+                <button class="close-btn" id="closeAiSettingsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="apiKeyInput">API ключ OpenRouter</label>
+                    <input type="password" id="apiKeyInput" class="setting-input" placeholder="Введите ваш API ключ">
+                    <p class="setting-description">Для работы с нейросетью необходим API-ключ с <a href="https://openrouter.ai/" target="_blank">OpenRouter</a></p>
+                </div>
+                
+                <div class="setting-group">
+                    <label for="modelSelect">Модель нейросети</label>
+                    <select id="modelSelect" class="setting-select">
+                        <option value="microsoft/wizardlm-2-8x22b">Microsoft WizardLM 2</option>
+                        <option value="google/gemini-2.0-flash-exp">Google Gemini 2.0 Flash</option>
+                        <option value="meta-llama/llama-3.1-8b-instruct">Meta Llama 3.1 8B</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <button class="btn btn-secondary" id="testApiBtn">
+                        <i class="fas fa-plug"></i>
+                        Проверить подключение
+                    </button>
+                    <div class="api-status" id="apiStatus">
+                        <i class="fas fa-circle"></i>
+                        <span>Статус не проверен</span>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <button class="btn btn-primary" id="saveAiSettingsBtn">
+                        <i class="fas fa-save"></i>
+                        Сохранить настройки
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно общих настроек -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Настройки приложения</h2>
+                <button class="close-btn" id="closeSettingsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="themeSelect">Тема интерфейса</label>
+                    <select id="themeSelect" class="setting-select">
+                        <option value="light">Светлая</option>
+                        <option value="dark">Темная</option>
+                        <option value="auto">Системная</option>
+                    </select>
+                </div>
+                
+                <div class="setting-group">
+                    <div class="setting-checkbox">
+                        <input type="checkbox" id="soundEnabled" checked>
+                        <label for="soundEnabled">Звуковые уведомления</label>
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <button class="btn btn-primary" id="saveSettingsBtn">
+                        <i class="fas fa-save"></i>
+                        Сохранить настройки
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
